@@ -2,6 +2,13 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
+
+  var user = fetch("http://localhost:8080/user?id=1")
+    .then((response) => response.json())
+    .then((data) => {
+      document.getElementById("firstNameLabel").innerHTML = data["firstName"]
+    })
+
   return (
     <div className="App">
       <header className="App-header">
@@ -17,6 +24,9 @@ function App() {
         >
           Learn React
         </a>
+        <p>
+          <label id="firstNameLabel"></label>
+        </p>
       </header>
     </div>
   );
